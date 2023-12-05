@@ -244,12 +244,7 @@ final_shapefile.loc[[832]] = es[final_shapefile.columns].values
 
 final_shapefile.reset_index().to_file('C:/Users/Yuchen.Guo/OneDrive - World Resources Institute/RDI/Data Team/7th CENSUS/China_county_v3.shp',index = False,driver='ESRI Shapefile',encoding='utf-8')
 
-
-['广东省 中山市 中山市']
-
-n = 1
-
-for iiddd, value in empty_shapefile[n:1+n].iterrows():
+for iiddd, value in empty_shapefile[:].iterrows():
     print(value['省级'],value['地级'],value['地名']) 
     p_county = county[county['省'] == value['省级']]
     p_county[p_county['市'] == value['地级']]
