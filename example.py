@@ -3,6 +3,10 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import numpy as np
 
+#Load jiuduanxian
+Line9 = gpd.read_file('https://china-data-team-bucket-public.s3.cn-northwest-1.amazonaws.com.cn/China_shapefile/%E4%B9%9D%E6%AE%B5%E7%BA%BF/%E4%B9%9D%E6%AE%B5%E7%BA%BF.shp')
+bd = gpd.read_file('https://china-data-team-bucket-public.s3.cn-northwest-1.amazonaws.com.cn/China_shapefile/%E5%9B%BD%E7%95%8C/%E5%9B%BD%E5%AE%B6%E7%9F%A2%E9%87%8F.shp')
+
 # Load shapefile from AWS
 shp = gpd.read_file('https://china-data-team-bucket-public.s3.cn-northwest-1.amazonaws.com.cn/7th_census/SHP_POP/China_POP_province.shp')
 # Load population data from AWS
@@ -26,6 +30,8 @@ print(result_df)
 ## Plotting
 # Map
 fig, ax = plt.subplots(figsize=(10, 10))  # Adjust the size as needed
+Line9.plot(ax = ax,edgecolor='grey')
+
 merged_data.plot(ax=ax,
                  column='population_1',
                  cmap='Oranges',
@@ -33,6 +39,8 @@ merged_data.plot(ax=ax,
                  legend=True)
 # Adding titles and labels
 ax.set_title("Total population by province")
+# Plotting borders with transparent fill
+bd.plot(ax=ax, edgecolor='grey', facecolor='none')
 # Adjust layout
 plt.tight_layout()
 # Show the chart
