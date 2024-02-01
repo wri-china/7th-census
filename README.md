@@ -48,3 +48,5 @@
 - `marriage_17` [平均存活子女数（人）]
 - `housing_2` [平均每户住房间数（间/户）]
 - `housing_3` [人均住房建筑面积（平方米/人）]
+
+##### Note: This dataset processing was done by WRI China Data Team - Weiqi Zhou & Yuchen Guo, and intern Haixia Xu.
